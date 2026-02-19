@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Listado de Productos PC</title>
-
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+
+@include('layout.navbar')
 
 <h1>Listado de Productos de PC</h1>
 
@@ -61,6 +62,8 @@
         </tr>
     </tbody>
 </table>
+
+@include('layout.footer')
 
 </body>
 </html>

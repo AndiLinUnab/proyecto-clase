@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Producto</title>
-
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+
+@include('layout.navbar')
 
 <h1>Crear Nuevo Producto</h1>
 
@@ -39,7 +40,10 @@
     <a href="index.blade.php" class="btn-volver">← Volver al listado</a>
 </div>
 
+@include('layout.footer')
+
 </body>
 </html>
+
 
 

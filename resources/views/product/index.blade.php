@@ -4,69 +4,7 @@
     <meta charset="UTF-8">
     <title>Listado de Productos PC</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        .btn-crear {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .btn-crear:hover {
-            background-color: #2980b9;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        img {
-            width: 80px;
-            border-radius: 5px;
-        }
-
-        .activo {
-            color: green;
-            font-weight: bold;
-        }
-
-        .inactivo {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 
@@ -109,5 +47,22 @@
             <td>Memoria RAM 16GB DDR4</td>
             <td>$350,000</td>
             <td>3200MHz alto rendimiento</td>
-            <td><img src="https://via.placeholder.
+            <td><img src="https://via.placeholder.com/80" alt="RAM"></td>
+            <td class="inactivo">Inactivo</td>
+        </tr>
+
+        <tr>
+            <td>004</td>
+            <td>SSD 1TB NVMe</td>
+            <td>$420,000</td>
+            <td>Alta velocidad de lectura y escritura</td>
+            <td><img src="https://via.placeholder.com/80" alt="SSD"></td>
+            <td class="activo">Activo</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
 

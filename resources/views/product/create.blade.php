@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear Producto</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@extends('layout.app')
 
-@include('layout.navbar')
+@section('title', 'Crear Producto')
+
+@section('content')
 
 <h1>Crear Nuevo Producto</h1>
 
@@ -37,13 +32,7 @@
         <button type="submit" class="btn-guardar">Guardar Producto</button>
     </form>
 
-    <a href="index.blade.php" class="btn-volver">← Volver al listado</a>
+    <a href="#" class="btn-volver">← Volver al listado</a>
 </div>
 
-@include('layout.footer')
-
-</body>
-</html>
-
-
-
+@endsection

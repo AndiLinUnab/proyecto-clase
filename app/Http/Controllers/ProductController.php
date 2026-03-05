@@ -27,18 +27,22 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-        //dd($request->all());
 
-        $newProduct = new Product();
-        $newProduct->name = $request->get('name');
-        $newProduct->description = $request->get('description');
-        $newProduct->price = $request->get('price');
-        $newProduct->category_id = $request->get('category_id');
-        
-        $newProduct->save();
-
-        return redirect()->route('product.index');
+    $newProduct = new Product();
+    $newProduct->name = $request->get('name');
+    $newProduct->description = $request->get('description');
+    $newProduct->price = $request->get('price');
+    $newProduct->category_id = $request->get('category_id');
+    
+    if($request->hasFile('image')) {
+        $ruta = $request->file('image')->store('images', 'public');
+        $newProduct->image = $ruta;
     }
+
+    $newProduct->save();
+
+    return redirect()->route('product.index')->with('success', 'Producto creado correctamente');
+}
 
     public function show($producto){
         return view('product.show');

@@ -11,13 +11,13 @@
         @csrf
     
         <label>ID Producto</label>
-        <input type="text" name="id" placeholder="Ingrese ID" value="{{ old('id') }}">
+        <input type="text" name="id" placeholder="Ingrese ID" value="{{ old('id') }}" required>
 
         <label>Nombre</label>
-        <input type="text" name="name" placeholder="Nombre del producto" value="{{ old('name') }}">
+        <input type="text" name="name" placeholder="Nombre del producto" value="{{ old('name') }}" required>
 
         <label>Precio</label>
-        <input type="number" name="price" placeholder="Precio" step="0.01" value="{{ old('price') }}">
+        <input type="number" name="price" placeholder="Precio" step="0.01" value="{{ old('price') }}" required>
 
         <label>Descripción</label>
         <textarea name="description" placeholder="Descripción del producto">{{ old('description') }}</textarea>
@@ -26,16 +26,19 @@
         <input type="file" name="image" accept="image/*">
 
         <label>Categoría</label>
-        <select>
+        <select name="category_id" required>
+            <option value="">Seleccione una categoría</option>  <!-- Opción por defecto -->
             @foreach ($categoryList as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
             @endforeach
         </select>
 
         <button type="submit" class="btn-guardar">Guardar Producto</button>
     </form>
 
-    <a href="#" class="btn-volver">← Volver al listado</a>
+    <a href="{{ route('product.index') }}" class="btn-volver">← Volver al listado</a>
 </div>
 
 @endsection

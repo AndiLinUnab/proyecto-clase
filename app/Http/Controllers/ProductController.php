@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
     public function index(){
 
-        $productList = Product::all();
+        $productList = Product::limit(10)->orderBy('id', 'desc')->get();
 
         return view('product.index', [
             'misProductos' => $productList
@@ -17,7 +18,26 @@ class ProductController extends Controller
     }
 
     public function create(){
-        return view('product.create');
+
+        $categoryList = Category::all();
+
+        return view('product.create', [
+            'categoryList' => $categoryList
+        ]);
+    }
+
+    public function store(Request $request){
+        //dd($request->all());
+
+        $newProduct = new Product();
+        $newProduct->name = $request->get('name');
+        $newProduct->description = $request->get('description');
+        $newProduct->price = $request->get('price');
+        $newProduct->category_id = $request->get('category_id');
+        
+        $newProduct->save();
+
+        return redirect()->route('product.index');
     }
 
     public function show($producto){

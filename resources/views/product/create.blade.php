@@ -7,26 +7,29 @@
 <h1>Crear Nuevo Producto</h1>
 
 <div class="form-container">
-    <form>
+    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+    
         <label>ID Producto</label>
-        <input type="text" placeholder="Ingrese ID">
+        <input type="text" name="id" placeholder="Ingrese ID" value="{{ old('id') }}">
 
         <label>Nombre</label>
-        <input type="text" placeholder="Nombre del producto">
+        <input type="text" name="name" placeholder="Nombre del producto" value="{{ old('name') }}">
 
         <label>Precio</label>
-        <input type="number" placeholder="Precio">
+        <input type="number" name="price" placeholder="Precio" step="0.01" value="{{ old('price') }}">
 
         <label>Descripción</label>
-        <textarea placeholder="Descripción del producto"></textarea>
+        <textarea name="description" placeholder="Descripción del producto">{{ old('description') }}</textarea>
 
         <label>Imagen</label>
-        <input type="file">
+        <input type="file" name="image" accept="image/*">
 
-        <label>Estado</label>
+        <label>Categoría</label>
         <select>
-            <option>Activo</option>
-            <option>Inactivo</option>
+            @foreach ($categoryList as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
         </select>
 
         <button type="submit" class="btn-guardar">Guardar Producto</button>

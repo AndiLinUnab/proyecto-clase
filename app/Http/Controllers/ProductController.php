@@ -8,25 +8,16 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
-    public function index(){
-
-        $productList = Product::limit(10)->orderBy('id', 'desc')->get();
-
-        return view('product.index', [
-            'misProductos' => $productList
-        ]);
-    }
-
-    public function create(){
-
-        $categoryList = Category::all();
-
-        return view('product.create', [
-            'categoryList' => $categoryList
-        ]);
-    }
-
+    
     public function store(Request $request){
+        //VALIDACION
+        $request->validate([
+            'name' => 'required|string|max:250',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'required|image'
+        ]);
 
     $newProduct = new Product();
     $newProduct->name = $request->get('name');

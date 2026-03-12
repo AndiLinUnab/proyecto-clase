@@ -48,7 +48,11 @@
             </td>
             <td>
                 <a href="#" class="btn-editar">✏️ Editar</a>
-                <a href="#" class="btn-eliminar" onclick="return confirm('¿Eliminar producto?')">🗑️ Eliminar</a>
+                <form action="{{ route('product.destroy', $producto) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
+                </form>
             </td>
         </tr>
         @empty

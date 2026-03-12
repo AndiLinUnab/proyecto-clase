@@ -51,7 +51,7 @@
                 <form action="{{ route('product.destroy', $producto) }}" method="POST" style="display: inline-block;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn-eliminar">🗑️ Eliminar</button>
+                    <button type="submit" class="btn-eliminar">🗑️ Destruir</button>
                 </form>
             </td>
         </tr>

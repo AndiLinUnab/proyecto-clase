@@ -23,7 +23,7 @@
     </thead>
     
     <tbody>
-        @forelse ($misProductos as $producto)
+        @forelse ($products as $producto)
         <tr>
             <td>{{ $producto->id }}</td>
             <td>{{ $producto->name }}</td>

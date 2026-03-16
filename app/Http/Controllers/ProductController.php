@@ -8,6 +8,18 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
+    public function index(){
+        $products = Product::with('category')
+                ->latest()
+                ->get();
+
+    return view('product.index', compact('products'));
+    }
+    public function create()
+    {
+        $categoryList = Category::all();
+    return view('product.create', compact('categoryList'));
+    }
     
     public function store(Request $request){
         //VALIDACION

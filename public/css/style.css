@@ -582,6 +582,55 @@ tbody td img:hover {
     font-size: 0.85rem;
     letter-spacing: 0.05em;
 }
+/* ── Dashboard ──────────────────────────────────────────────── */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.dashboard-card {
+    background: #111318;
+    border: 1px solid #1e2230;
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card:hover {
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.06);
+    transform: translateY(-4px);
+}
+
+.dashboard-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e8ecf4;
+    margin: 0;
+}
+
+.dashboard-card p {
+    font-size: 0.85rem;
+    color: #6b7591;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+}
+
+.dashboard-card .btn-crear {
+    align-self: flex-start;
+    margin-bottom: 0;
+}
 /* ── Animaciones ────────────────────────────────────────────── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }

@@ -14,3 +14,13 @@ Route::prefix('product')->controller(ProductController::class)->group(function()
     Route::delete('/{producto}', 'destroy')->name('product.destroy');
 });
 
+/* RUTA ADMIN */
+
+Route::prefix('admin')->group(function(){
+
+    Route::get('/', function(){
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+});
+

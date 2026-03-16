@@ -47,7 +47,10 @@
                 {{ $producto->is_active ? 'Activo' : 'Inactivo' }}
             </td>
             <td>
-                <a href="#" class="btn-editar">✏️ Editar</a>
+                <a href="{{ route('product.show', $producto) }}" class="btn">
+                <button type="submit" class="btn-seleccionar">Seleccionar</button>
+                </a>
+                <br></br/>
                 <form action="{{ route('product.destroy', $producto) }}" method="POST" style="display: inline-block;">
                     @csrf
                     @method('DELETE')

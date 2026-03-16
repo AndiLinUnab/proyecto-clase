@@ -568,6 +568,20 @@ tbody td img:hover {
     display: block;
 }
 
+/* ── Sin imagen — show.blade.php ────────────────────────────── */
+.no-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #181b22;
+    border: 1px dashed #1e2230;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7591;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
 /* ── Animaciones ────────────────────────────────────────────── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\CategoryController; // IMPORTANTE
@@ -25,6 +26,14 @@ Route::prefix('admin')->group(function(){
 
     // CRUD DE CATEGORIAS
     Route::resource('categories', CategoryController::class);
+
+});
+
+Route::prefix('cart')->controller(CartController::class)->group(function(){
+
+    Route::get('/', 'index')->name('cart.index');
+    Route::post('/add/{product}', 'add')->name('cart.add');
+    Route::delete('/remove/{cart}', 'remove')->name('cart.remove');
 
 });
 
